@@ -1,0 +1,12 @@
+{
+  "name": "Nodejs_in_action",
+  "version": "1.0.0",
+  "description": "A side project to learn node",
+  "main": "index.js",
+  "repository": {
+    "url": "git@github.com:X9X/Nodejs_in_action.git",
+    "type": "git"
+  },
+  "author": "yangjinbao89757@gmail.com",
+  "license": "MIT"
+}
