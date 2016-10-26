@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript" src='./node_modules/axios/dist/axios.js'></script>
+  <script type="text/javascript">
+  axios.get('http://localhost:3000/data').then(function (response) {
+      document.write(JSON.stringify(response.data));
+    })
+  </script>
+</html>
