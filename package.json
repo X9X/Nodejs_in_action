@@ -13,11 +13,15 @@
   "author": "yangjinbao89757@gmail.com",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.14.0",
+    "koa": "^1.2.4",
     "shelljs": "^0.7.4"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
-    "babel-preset-latest": "^6.16.0"
+    "babel-preset-latest": "^6.16.0",
+    "axios": "^0.15.2",
+    "http-server": "^0.9.0"
   }
 }
