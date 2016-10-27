@@ -1,7 +1,6 @@
 export default class Person {
     constructor(name='张三',age=18,infos) {
-        this.name = name;
-        this.age = age;
+        [this.name,this.age] = [name,age];
         Object.keys(infos).forEach(k=>{this[k] = infos[k]});
     }
     static isTeen(age){

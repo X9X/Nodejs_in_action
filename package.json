@@ -7,9 +7,17 @@
     "url": "git@github.com:X9X/Nodejs_in_action.git",
     "type": "git"
   },
+  "scripts": {
+    "babel": "babel ./babel-test.js -d babeld"
+  },
   "author": "yangjinbao89757@gmail.com",
   "license": "MIT",
   "dependencies": {
     "shelljs": "^0.7.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-latest": "^6.16.0"
   }
 }
