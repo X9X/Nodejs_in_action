@@ -8,7 +8,7 @@
     "type": "git"
   },
   "scripts": {
-    "babel": "babel ./babel-test.js -d babeld"
+    "babel": "babel ./babel-test.js -d babeled"
   },
   "author": "yangjinbao89757@gmail.com",
   "license": "MIT",
