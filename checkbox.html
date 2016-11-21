@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+        .checkbox{
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            border: 1px solid #ddd;
+            position:relative;
+        }
+        .checkbox.active{
+            border-color: #00ae66
+        }
+        .checkbox.active .check{
+            display: inline-block;
+            width: 14px;
+            height: 6px;
+            border: solid #00ae66;
+            border-width: 0 0 2px 2px;
+            transform: rotate(-49deg);
+            position: absolute;
+            left: 3px;
+            top: -1px;
+            box-shadow: 0 2px 1px 0 #fff,0 -2px 0 0 #fff inset;
+        }
+    </style>
+</head>
+<body>
+    <div class="checkbox active">
+        <span class="box"></span>
+        <span class="check"></span>
+    </div>
+</body>
+</html>
