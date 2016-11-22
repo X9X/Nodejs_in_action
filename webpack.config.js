@@ -5,8 +5,13 @@ module.exports = {
         './test.js'
     ],
     output: {
-        path: path.resolve(__dirname, ''),
+        path: path.resolve(__dirname, './'),
         filename: 'test.min.js'
     },
-    devtool: 'eval'
+    module: {
+        rules: [
+          {test: /\.(js|jsx)$/, use: 'babel-loader'}
+        ]
+    },
+    devtool: 'source-map'
 };
