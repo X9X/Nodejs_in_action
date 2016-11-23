@@ -1,0 +1,15 @@
+.container {
+    height: 800px;
+    border: 1px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    background-clip: padding-box;
+    border: 20px dotted hsla(0,0%,100%,0.5)
+}

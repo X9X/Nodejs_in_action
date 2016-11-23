@@ -1,0 +1,16 @@
+.container {
+    height: 800px;
+    /*border: 1px solid green;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: repeating-linear-gradient(45deg,#fb3 ,#58a 30px);
+    background-size: 42.4264px 42.4264px;
+    /*box-shadow: 0 0 0 5px black,0 0 0 10px red,0 0 0 15px blue,0 0 0 5px yellow inset;*/
+    box-shadow: 0 0 0 7px gray;
+    outline: 15px solid gray;
+    /*outline-offset: -10px;*/
+    margin:15px;
+    padding: 5px;
+    border-radius: 15px
+}
