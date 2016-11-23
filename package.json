@@ -8,7 +8,8 @@
     "type": "git"
   },
   "scripts": {
-    "babel": "babel ./babel-test.js -d babeled"
+    "babel": "babel ./babel-test.js -d babeled",
+    "build": "webpack"
   },
   "author": "yangjinbao89757@gmail.com",
   "license": "MIT",
@@ -18,10 +19,14 @@
     "shelljs": "^0.7.4"
   },
   "devDependencies": {
+    "axios": "^0.15.2",
     "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-plugin-transform-es2015-function-name": "^6.9.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
-    "axios": "^0.15.2",
-    "http-server": "^0.9.0"
+    "http-server": "^0.9.0",
+    "webpack": "^2.1.0-beta.27"
   }
 }
