@@ -9,7 +9,7 @@
   },
   "scripts": {
     "babel": "babel ./babel-test.js -d babeled",
-    "build": "webpack"
+    "dev": "webpack --debug --watch"
   },
   "author": "yangjinbao89757@gmail.com",
   "license": "MIT",

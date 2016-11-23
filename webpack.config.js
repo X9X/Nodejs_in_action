@@ -5,7 +5,7 @@ module.exports = {
         './test.js'
     ],
     output: {
-        path: path.resolve(__dirname, './'),
+        path: path.resolve(__dirname, './dist/'),
         filename: 'test.min.js'
     },
     module: {
