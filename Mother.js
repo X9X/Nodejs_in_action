@@ -1,15 +1,25 @@
-import  Person from './Person'
+import Person from './Person'
 class Mother extends Person {
-    constructor(first_name, sons=[]) {
+    Mother.gender = 'female'
+    constructor(first_name, sons = []) {
         //remove duplicated names
         this.sons = [...new Set(sons)]
         this.first_name = first_name
     }
-    static yell(){
+    get prop() {
+        return 'getter';
+    }
+    set prop(value) {
+        console.log('setter: ' + value);
+    }
+    static yell() {
         console.log('Oh, sweetie...')
     }
-    printNames (){
-        for (let name of this.sons){
+    static classMethod() {
+        return super.isTeen(18) + ', too';
+    }
+    printNames() {
+        for (let name of this.sons) {
             console.log(`${name}\n`);
         }
     }
