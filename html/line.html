@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="gbk">
+  <title>...</title>
+ </head>
+<body>
+ <canvas id = "canvas" width="600" height="600"></canvas>
+ <script>
+    // (function () {
+    //     var canvas = document.getElementById('canvas');
+    //     var points = [{
+    //         x : 0,
+    //         y : 0
+    //     },
+    //     {
+    //         x : 100,
+    //         y : 100
+    //     },
+    //     {
+    //         x : 110,
+    //         y : 0
+    //     },
+    //     {
+    //         x : 120,
+    //         y : 110
+    //     },
+    //     {
+    //         x : 130,
+    //         y : 0
+    //     },
+    //     {
+    //         x : 140,
+    //         y : 120
+    //     }]
+    //     var ctx = canvas.getContext('2d');
+    //     var num = 1
+    //     window.timer = setInterval(function(){
+    //         if(num >= points.length){
+    //             clearInterval(window.timer);
+    //             return void 0
+    //         }
+    //         ctx.clearRect(0,0,300,300);
+    //         ctx.moveTo(0,0)
+    //         for(var i = 1;i<=num;i++){
+    //             ctx.lineTo(points[i].x,points[i].y);
+    //             ctx.stroke();
+    //         }
+    //         num += 1;
+    //         console.log(num);
+    //     },100)
+    // }());
+    !function(){
+        var i=0;
+        var length = 200;
+        var seconds = 2;
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        setInterval(function(){
+            ctx.clearRect(300,300,300,300);
+            ctx.lineWidth = 20;
+            ctx.lineCap = 10;
+            ctx.strokeStyle = '#00ae66';
+            ctx.moveTo(300,300);
+            ctx.lineTo(300+ i * length/seconds/25,300);
+            ctx.stroke();
+            i++;
+        })
+    }()
+</script>
+</body>
+</html
