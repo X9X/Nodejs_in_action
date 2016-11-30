@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>textarea</title>
+    <style media="screen">
+        @keyframes spin {
+            from {
+                transform: translateY(150px) translateY(-50%) rotate(0turn) translateY(-150px) translateY(50%) rotate(1turn);
+            }
+            to {
+                transform: translateY(150px) translateY(-50%) rotate(1turn) translateY(-150px) translateY(50%) rotate(0turn);
+            }
+        }
+
+        .avatar {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            border-radius: 50%;
+            text-align: center;
+            animation: spin 3s infinite linear;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: inherit;
+            animation-direction: reverse;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="avatar">
+        <img src="../img/dog.jpg" alt="">
+    </div>
+</body>
+
+</html>

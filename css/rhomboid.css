@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
+.container {
+    /*border-radius: 100% 0 0 0;*/;
+    font-style: 40px;
+    position: relative;
+    width: 600px;
+    height: 400px;
+}
+.container::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index: -1;
+    border: 1px solid green;
+    background-color: orange;
+    transform: rotateY(40deg);
+    transform: perspective(400px) rotateY(40deg);
+}
