@@ -61,29 +61,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-'use strict';
-
-var _Person = __webpack_require__(1);
-
-var _Person2 = _interopRequireDefault(_Person);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-console.log(2);
-var person = new _Person2.default('yang', 27, { home: 'fy' });
-console.log(_Person2.default.isTeen(person.age));
-console.log(person.introSelf());
-
-/***/ },
-/* 1 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -135,12 +117,22 @@ var Person = function () {
 exports.default = Person;
 
 /***/ },
-/* 2 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(0);
+"use strict";
+'use strict';
 
+var _Person = __webpack_require__(0);
+
+var _Person2 = _interopRequireDefault(_Person);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var person = new _Person2.default('yang', 27, { home: 'fy' });
+console.log(_Person2.default.isTeen(person.age));
+console.log(person.introSelf());
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=test.min.js.map
+//# sourceMappingURL=main.js.map
