@@ -16,3 +16,8 @@ var e = c()
 for (let i = 0;i < 10;i++){
     console.log(e.next());
 }
+import Person from './es6/Person';
+console.log(2);
+const person = new Person('yang',27,{home:'fy'});
+console.log(Person.isTeen(person.age));
+console.log(person.introSelf());
