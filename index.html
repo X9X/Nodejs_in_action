@@ -30,7 +30,29 @@
 
         </div>
     </div>
+    What dose dataPriv object with hasDataAttrs attibute actually do?
+    <div class="sub">
+I'm a little confused about hasDataAttrs of dataPriv which is set to Element object when data() is called. After I invoke removeData(), it still remains true. Is it a bug?
+    </div>
 </body>
-<!-- <script src="http://cdn.bootcss.com/vue/2.1.8/vue.min.js"></script> -->
-<script src="./dist/test.min.js" charset="utf-8"></script>
+
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script type="text/javascript">
+    // var app = $('#app').data('order',1);
+    // console.log(app[0][$.expando + '1']);
+    // console.log(app[0][$.expando + '2']);
+    // console.log('---------------');
+    // console.log(app.data());
+    // app.removeData()
+    // console.log('---------------');
+    // console.log(app[0][$.expando + '1']);
+    // console.log(app[0][$.expando + '2']);
+$(function(){
+    $(window).on('load',function(){
+        console.log(document.readyState);
+        console.log(1);
+    })
+})
+</script>
+<!-- <script src="./dist/test.min.js" charset="utf-8"></script> -->
 </html>
