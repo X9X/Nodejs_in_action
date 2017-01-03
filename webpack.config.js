@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 module.exports = {
     entry: [
         './test.js'
@@ -12,5 +13,18 @@ module.exports = {
           {test: /\.(js|jsx)$/, use: 'babel-loader'}
         ]
     },
-    devtool: 'source-map'
+    devtool: 'source-map',
+    plugins:[
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            sourceMap:true
+        })
+    ],
+    resolve :{
+        alias: {
+          vue: 'vue/dist/vue.js'
+        }
+    }
 };
