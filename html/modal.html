@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+        .slide-enter-active,
+        .slide-leave-active {
+            transition: all .5s ease-out;
+            transform:translateY(0);
+        }
+        .slide-enter{
+            transform:translateY(-100%);
+        }
+        .slide-enter{
+            opacity: 0
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <modal :background="background" :z-index="zIndex" @click.native="toggle" :show="show">
+            <some-thing content="hello world" v-show="show"></some-thing>
+        </modal>
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    var modal = Vue.extend({
+        template: `
+        <div :style="basicStyle" @click="hide">
+            <transition name="slide">
+                <slot></slot>
+            </transition>
+        </div>`,
+        props: ['zIndex', 'background','hideDelay','show'],
+        watch:{
+            show : function(v){
+                this.showChild = true
+            }
+        },
+        data: function() {
+            return {
+                showChild:true,
+                basicStyle: {
+                    content: '',
+                    position: 'fixed',
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    background: this.background,
+                    zIndex: this.zIndex,
+                    display:'flex',
+                    alignItems:'center',
+                    justifyContent:'center'
+                }
+            }
+        },
+        methods:{
+            hide(){
+                this.$emit('close');
+            }
+        }
+    })
+    var someThing = Vue.extend({
+        template: `<div style="height:400px;width:600px;display:flex;align-items:center;justify-content:center;background-color:white">
+            content go here
+        </div>`,
+        props:['content'],
+        data: function() {
+            return {}
+        }
+    })
+    Vue.component('modal', modal)
+    Vue.component('someThing', someThing)
+    new Vue({
+        el: '#app',
+        data: {
+            init : {
+                name : ['a']
+            },
+            block : {
+                name : ['b']
+            },
+            background: 'rgba(0,0,0,.5)',
+            zIndex: 9999,
+            show: false
+        },
+        methods: {
+            toggle: function() {
+                this.show = !this.show;
+            }
+        }
+    })
+</script>
+
+</html>
