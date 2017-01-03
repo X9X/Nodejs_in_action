@@ -18,13 +18,10 @@ class Tree {
         let urlList = [...new Set(urls)]
         if(urlList.length === 0) return null
         let tree = new Node('/')
-        tree.children = []
         let pointer = tree.children
         urlList.forEach(url=>{
-            console.log(url);
             let kids = url.trim().substr(1).split('/')
             for(let i = 0,length = kids.length;i < length;i++){
-                console.log(i);
                 let filtered = pointer.filter(item => item.label === kids[i])
                 let node
                 if(!filtered.length){
