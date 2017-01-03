@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=<ed></ed>ge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" data-page="1">
+        <div class="child">
+
+        </div>
+    </div>
+    <div class="sub">
+    </div>
+</body>
+
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script type="text/javascript">
+
+    var app = $('#app').data('order',1).data('ll',2);
+    console.log(app[0][$.expando + '1']);
+    console.log(app[0][$.expando + '2']);
+    console.log('---------------');
+    console.log(app[0][$.expando + '1']);
+    console.log(app.data('page'));
+    console.log(app[0][$.expando + '2']);
+    console.log('---------------');
+    console.log(app.data());
+    console.log(app[0][$.expando + '1']);
+    console.log(app[0][$.expando + '2']);
+    console.log('---------------');
+    app.removeData()
+    console.log(app.data());
+    console.log(app[0][$.expando + '1']);
+    console.log(app[0][$.expando + '2']);
+    console.log(app.attr('data-page'));
+</script>
+</html>
