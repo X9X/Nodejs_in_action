@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">间隔</label>
+        <input type="number" id="step" placeholder="数字变化间隔" >
+    </div>
+    <div>
+        <label for="">变化总时间</label>
+        <input type="number" id="duration" placeholder="单位秒">
+    </div>
+    <div>
+        <label for="">最终数字</label>
+        <input type="number" id="num" placeholder="数字">
+    </div>
+    <div id="showNum">
+
+    </div>
+    <div>
+        <button type="button" name="button" onclick="run()">走你</button>
+    </div>
+</body>
+<script type="text/javascript">
+    function run (){
+        var numStep = Number(step.value);
+        var totalDuration = Number(duration.value);
+        var totalNum = Number(num.value);
+        if(!numStep || !totalDuration || !totalNum){
+            alert('All fields are required');
+            return ;
+        }
+        var secondStep = totalDuration * 1000 / totalNum * numStep;
+        var totalSteps = Math.ceil(totalNum / numStep);
+        var count =  1;
+        var i = setInterval(function(){
+            if(count >= totalSteps ){
+                showNum.innerText = totalNum;
+                clearInterval(i)
+                return ;
+            }
+            showNum.innerText = numStep * count;
+            showNum.style.color = 'rgba(0,174,102,' + (count / totalSteps)+ ')';
+            count++;
+        },secondStep)
+    }
+</script>
+</html>
