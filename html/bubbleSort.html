@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+        body{
+            display: flex;
+        }
+        #cav{
+            width: 1000px;
+            height: 1000px;
+            border: 1px solid #00ae66;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cav">
+
+    </canvas>
+</body>
+<script type="text/javascript">
+    var canvas = document.getElementById("cav");
+    var ctx =  canvas.getContext("2d");
+    function initCanvas() {
+        var rootWidth = 1000;
+        var devicePixelRatio =  window.devicePixelRatio || 1;
+        var backingStoreRatio = ctx.webkitBackingStorePixelRatio ||
+            ctx.mozBackingStorePixelRatio ||
+            ctx.msBackingStorePixelRatio ||
+            ctx.oBackingStorePixelRatio ||
+            ctx.backingStorePixelRatio || 1;
+        var ratio = devicePixelRatio / backingStoreRatio;
+        canvas.width = rootWidth * ratio;
+        canvas.height = canvas.width;
+        ctx.scale(ratio,ratio);
+    }
+    function bubbleSort(arr, order){
+       if(arr.length < 1) return arr;
+       let desc = order === 'desc';
+       let length = arr.length;
+       let times = 1;
+       while (times < length){
+           let i = 0;
+           let tmp;
+           let changed = false;
+           while(i < length -1){
+               if(arr[i] > arr[i+1]){
+                   tmp = arr[i];
+                   arr[i] = arr[i+1];
+                   arr[i+1] = tmp;
+                   changed = true
+               }
+               i++
+               queue.push(new Todo(paint,arr.slice()));
+           }
+           if(!changed) break;
+           times++
+       }
+       return !desc ? arr : arr.reverse()
+   }
+    function paint(arr){
+        ctx.clearRect(0,0,1000,1000);
+        var length = arr.length;
+        var itemWidth = Math.floor(1000 / length / 2)
+        ctx.strokeStyle = '#ff0000';
+        arr.forEach((num,index) => {
+            let x = index * itemWidth * 2;
+            ctx.beginPath();
+            ctx.moveTo(x,1000)
+            ctx.lineWidth = itemWidth;
+            ctx.lineTo(x,1000 - num);
+            ctx.stroke();
+            ctx.closePath();
+        })
+    }
+    function Queue(){
+        this.todos = [];
+    }
+    function Todo (func,argv){
+        this.func = func;
+        this.argv = argv
+    }
+    Queue.prototype = {
+        run : function(time){
+            setInterval(function (){
+                let todo;
+                if(this.todos.length > 0){
+                    todo = this.pop();
+                    todo.func(todo.argv);
+                }
+            }.bind(this),time)
+        },
+        push : function(thing){
+            this.todos.push(thing)
+        },
+        pop : function(){
+            return this.todos.shift();
+        }
+    }
+    var nums = [1000,144,250,960,350,600,200,870,360,980,200,400,300,700,200,500,40,800,360,900,320,600,100];
+    initCanvas();
+    var queue = new Queue();
+    queue.run(200);
+    bubbleSort(nums);
+</script>
+</html>
