@@ -1,23 +1,17 @@
-
 module.exports = function quickSort(arr,start,end){
     let i = start || 0;
     let j = end || arr.length - 1;
-    let k,tmp;
     let startIndex = i;
     let endIndex = j;
     if(j - i < 1) return;
-    k = arr[i];
+    let k = arr[i];
     while(j > i){
         if(arr[j] < k){
-            tmp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = tmp;
+            [arr[i] , arr[j]] = [arr[j] , arr[i]];
             i++;
             while ( j > i){
                 if(arr[i] > k){
-                    tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
+                    [arr[i] , arr[j]] = [arr[j] , arr[i]];
                     j--;
                     break;
                 } else {
