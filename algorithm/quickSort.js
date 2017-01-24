@@ -25,3 +25,7 @@ module.exports = function quickSort(arr,start,end){
     startIndex < i - 1 && quickSort(arr, startIndex, i - 1);
     endIndex > i + 1 && quickSort(arr, i + 1, endIndex);
 }
+function quickSort(arr){
+    let x = arr[0];
+    return x ? quickSort(arr.filter(i => i <= x)).concat(quickSort(arr.filter(i => i > x))) : []
+}
