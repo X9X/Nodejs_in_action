@@ -21,7 +21,7 @@ function procedure(Q){
  * @return {[Array]}            [input number list]
  */
 function antiProcedure(outputList){
-    let input = []
+    let input = [];
     let out = outputList.reverse();
     while(out.length > 0){
         let num = out.shift();
