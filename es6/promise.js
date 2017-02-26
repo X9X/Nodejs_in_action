@@ -18,3 +18,8 @@ p.then(function(data){
 }).then(null,function(reason){
     console.log(reason);
 })
+
+//es6
+function remoceDuplicate(arr){
+    return [...new Set(arr)]
+}
