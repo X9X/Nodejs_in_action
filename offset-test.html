@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>111</title>
@@ -46,12 +45,12 @@
                 y: 0
             }
         }
+        var ofs = offset(el.offsetParent);
         return {
-            x: el.offsetLeft + offset(el.offsetParent).x,
-            y: el.offsetTop + offset(el.offsetParent).y
+            x: el.offsetLeft + ofs.x,
+            y: el.offsetTop + ofs.y
         }
     }
     console.log(offset(item))
 </script>
-
 </html>
