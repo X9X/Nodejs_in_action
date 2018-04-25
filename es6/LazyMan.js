@@ -1,81 +1,56 @@
-function Queue(){
-    this.todos = [];
+function Todo(func, argv) {
+  this.func = func;
+  this.argv = argv;
 }
-function Todo (func,argv){
-    this.func = func;
-    this.argv = argv
-}
-Queue.prototype = {
-    run : function(){
-        if(this.todos.length){
-            let todo = this.shift();
-            todo.func(todo.argv)
-        }
-    },
-    push : function(thing){
-        this.todos.push(thing)
-    },
-    shift : function(){
-        return this.todos.shift();
-    },
-    unshift : function(thing){
-        this.todos.unshift(thing)
-    }
-}
-function Man(name){
-    this.name = name;
-    this._todos = new Queue();
-    this.subscribe('introSelf')
-    setTimeout(function(){
-        this._todos.run()
-    }.bind(this),0)
-}
-var behavior = {
-    sleep : function(seconds){
-        setTimeout(function(){
-            console.log(`Wake up after ${seconds}s`);
-            this.run();
-        }.bind(this),seconds * 1000)
-    },
-    eat : function(meal){
-        console.log(`eating ${meal}`);
-        this.run();
-    },
-    sleepFirst : function(seconds){
-        setTimeout(function(){
-            console.log(`Wake up after ${seconds}s`);
-            this.run();
-        }.bind(this),seconds * 1000)
-    },
-    introSelf:function(){
-        console.log(`Hi, this is ${this.name}`);
-        this.run();
-    }
+function Man(name) {
+  this.name = name;
+  this.todos = [];
+  this.introSelf();
+  setTimeout(() => this.runNext(), 0);
 }
 Man.prototype = {
-    subscribe:function(func,argv){
-        if(func === 'sleepFirst'){
-            this._todos.unshift(new Todo(behavior[func].bind(this),argv))
-        } else {
-            this._todos.push(new Todo(behavior[func].bind(this),argv))
-        }
-    },
-    sleep : function(seconds){
-        this.subscribe(arguments.callee.name,seconds)
-        return this
-    },
-    eat : function(meal){
-        this.subscribe(arguments.callee.name,meal)
-        return this
-    },
-    sleepFirst : function(seconds){
-        this.subscribe(arguments.callee.name,seconds)
-        return this
-    },
-    run : function(){
-        this._todos.run()
+  subscribe(func, first, ...argv) {
+    this.todos[first ? 'unshift' : 'push'](new Todo(func, argv));
+  },
+  introSelf() {
+    this.subscribe(() => {
+      console.log(`Hi, this is ${this.name}`);
+      this.runNext();
+    });
+    return this;
+  },
+  sleep(seconds, first) {
+    this.subscribe(seconds => {
+      setTimeout(() => {
+        console.log(`Wake up after ${seconds}s`);
+        this.runNext();
+      }, seconds * 1000);
+    }, first, seconds);
+    return this;
+  },
+  eat(meal) {
+    this.subscribe(meal => {
+      console.log(`eating ${meal}`);
+      this.runNext();
+    }, 0, meal);
+    return this;
+  },
+  sleepFirst(seconds) {
+    this.sleep(seconds, 1)
+    return this;
+  },
+  runNext() {
+    if (this.todos.length) {
+      let todo = this.todos.shift();
+      todo.func.apply(this, todo.argv);
     }
+  }
+};
+function LazyMan(name) {
+  return new Man(name);
 }
-function LazyMan(name){
-    return new Man(name)
-}
+LazyMan("peter")
+  .sleepFirst(3)
+  .eat("dinner")
+  .sleep(3)
+  .eat("supper");

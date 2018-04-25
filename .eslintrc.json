@@ -6,13 +6,9 @@
     },
     "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
+        "sourceType": "module"
     },
     "rules": {
-        "indent": 0,
         "comma-dangle": 0,
         "no-cond-assign": ["error", "always"],
         "no-console": "off"

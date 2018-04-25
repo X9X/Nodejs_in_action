@@ -28,5 +28,7 @@ function wash(cards, times = 1) {
     }
     return cards
 }
+console.log('====================================');
+console.log(wash([1,2,3,4,5,6]));
+console.log('====================================');
 
-wash([1,2,3,4,5,6])
