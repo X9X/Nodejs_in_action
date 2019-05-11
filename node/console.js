@@ -8,6 +8,7 @@ console.log('hello %s', 'world');
 const name = 'Will Robinson';
 console.warn(`Danger ${name}! Danger!`);
   // Prints: Danger Will Robinson! Danger!, to stderr
+  // Prints: Danger Will Robinson! Danger!, to stderr
 const dir = {
   a : {
     b :1
