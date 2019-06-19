@@ -4,24 +4,33 @@
      <style type="text/css">
 
          .parent {
-             position:  relative;
+             /* position:  relative; */
              width: 750px;
              height: 150px;
              background: red;
-             border: solid 1px #000;
-             z-index: initial;
+             /* border: solid 1px #000; */
+             /* z-index: initial; */
          }
          .child {
-             position: relative;
+             /* position: relative;
              background-color: blue;
-             z-index: -1;
+             z-index: -1; */
              color: white;
+             width: 100%;
+             height: 100%;
+             left: 0;
+             line-height: 20px;
+             font-size: 30px;
+             border: 1px solid red;
+             padding: 2px;
          }
          .wrapper
          {
+            transform: translateX(0);
+            width: 1000px;
              position: relative;
              background: green;
-             z-index: 10;
+             /* z-index: 10; */
          }
      </style>
 
@@ -29,7 +38,7 @@
  <body>
      <div class="wrapper">
          <div class="parent">parent parent
-             <div class="child">child child child</div>
+             <span class="child">child child child</span>
          </div>
      </div>
 

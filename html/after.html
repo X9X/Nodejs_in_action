@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <!-- <ul id="ul">
+        <li>0</li>
+        <li id="li1">1</li>
+        <li>3</li>
+        1
+    </ul> -->
+    <canvas id="canvas" width="300" height="300"></canvas>
+</body>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    // var li = document.createElement('li');
+    // li.innerText = '2';
+    // ul.insertBefore(li, li1)
+    // ctx.beginPath();
+    ctx.fillStyle = 'blue';
+    ctx.moveTo(20, 20);
+    ctx.lineTo(200, 20);
+    ctx.lineTo(200, 200);
+    ctx.fill();
+</script>
+
+</html>
