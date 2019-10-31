@@ -23,7 +23,7 @@
     "vue": "^2.1.8"
   },
   "devDependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
